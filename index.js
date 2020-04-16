@@ -3,10 +3,10 @@
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
-var P = 200000;//principal
+var principal = 200000;//principal
 var I = 0.05;//interest rate
 var Y = 30;//years
-var N = 'mark';//name
+var name = 'mark';//name
 var C = 640;//credit score
 
 
@@ -33,13 +33,11 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
-m = monthlyRate(P, periods, monthlyInterestRate);
+m = monthlyRate(principal, periods, monthlyInterestRate);
 
 
-function monthlyRate (P, periods, monthlyInterestRate, C) {
-    if(C < 660){ monthlyInterestRate = monthlyInterestRate +.5;
-    }else if (C >= 740){ monthlyInterestRate = monthlyInterestRate- .5;}
-   return P * monthlyInterestRate * (Math.pow(1 + monthlyInterestRate, periods)) / (Math.pow(1 + monthlyInterestRate, periods)- 1);
+function monthlyRate (principal, periods, monthlyInterestRate) {
+   return principal * monthlyInterestRate * (Math.pow(1 + monthlyInterestRate, periods)) / (Math.pow(1 + monthlyInterestRate, periods)- 1);
 }
 console.log (monthlyInterestRate);
 console.log(m);
@@ -50,10 +48,10 @@ console.log(m);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-function mortgageCalculator (N, m){
-    console.log(N, ', your monthly rate is', m)
+function mortgageCalculator (name, m){
+    console.log(name, ', your monthly rate is', m)
 }
-mortgageCalculator(N, m);
+mortgageCalculator(name, m);
 
 
 // 🏡 Task 4: Arguments and Parameters
@@ -64,7 +62,11 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
 
+function mortgageCalculator (P, I, N){
+    return(Math.round(P * (((I/12) * Math.pow((1 + (I/12)), (N * 12))) / (Math.pow((1 + (I/12)), (N * 12)) - 1)) *100)/100)
+}
 
+console.log(mortgageCalculator(2000000, 0.05, 30))
 
 
 // 🏡 Task 5: Conditionals
