@@ -3,7 +3,11 @@
 // 🏡 Task 1: Variables
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
-
+var principal = 200000;//principal
+var I = 0.05;//interest rate
+var Y = 30;//years
+var name = 'mark';//name
+var C = 640;//credit score
 
 
 
@@ -15,7 +19,8 @@ Create a variable called `monthlyInterestRate` and give it the value of interest
 
 Create another variable called `periods` and give it the value of years*12.
 */
-
+var monthlyInterestRate = (I/12)
+var periods = (Y*12)
 
 
 
@@ -28,9 +33,14 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 
 When your math is correct, monthlyRate will equal 1073.64
 */
+m = monthlyRate(principal, periods, monthlyInterestRate);
 
 
-
+function monthlyRate (principal, periods, monthlyInterestRate) {
+   return principal * monthlyInterestRate * (Math.pow(1 + monthlyInterestRate, periods)) / (Math.pow(1 + monthlyInterestRate, periods)- 1);
+}
+console.log (monthlyInterestRate);
+console.log(m);
 
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
@@ -38,8 +48,10 @@ When your math is correct, monthlyRate will equal 1073.64
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-
-
+function mortgageCalculator (name, m){
+    console.log(name, ', your monthly rate is', m)
+}
+mortgageCalculator(name, m);
 
 
 // 🏡 Task 4: Arguments and Parameters
@@ -50,7 +62,11 @@ mortgageCalculator(2000000, 0.05, 30); <-- should return 1,073.64
 */
 
 
+function mortgageCalculator (P, I, N){
+    return(Math.round(P * (((I/12) * Math.pow((1 + (I/12)), (N * 12))) / (Math.pow((1 + (I/12)), (N * 12)) - 1)) *100)/100)
+}
 
+console.log(mortgageCalculator(2000000, 0.05, 30))
 
 
 // 🏡 Task 5: Conditionals
